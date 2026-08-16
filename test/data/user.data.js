@@ -11,6 +11,11 @@ export const userData = {
     password: 'password12345',
 };
 
+export const successfulRegistrationData = {
+    welcomeHeader: `Welcome ${userData.username}`,
+    welcomeMessage: `Your account was created successfully. You are now logged in.`,
+};
+
 export const invalidUserData = {
     firstName: 'invaliduser',
     lastName: '123invalidpassword321',

@@ -1,4 +1,5 @@
 import Page from './page.js';
+import { browser } from '@wdio/globals';
 
 class RegisterPage extends Page {
     get inputFirstName() {
@@ -41,6 +42,22 @@ class RegisterPage extends Page {
         return $('input[id="customer.password"]');
     }
 
+    get inputConfirmPassword() {
+        return $('input[id="repeatedPassword"]');
+    }
+
+    get btnRegister() {
+        return $('input[value="Register"]');
+    }
+
+    get header() {
+        return $('h1.title');
+    }
+
+    get message() {
+        return $('h1.title + p');
+    }
+
     open() {
         return super.open('register.htm');
     }
@@ -57,6 +74,10 @@ class RegisterPage extends Page {
         await this.inputSSN.setValue(userData.ssn);
         await this.inputUsername.setValue(userData.username);
         await this.inputPassword.setValue(userData.password);
+        await this.inputConfirmPassword.setValue(userData.password);
+        await this.btnRegister.click();
+        console.log('Complete CAPTCHA manually, then press Enter...');
+        await browser.pause(10000);
     }
 }
 
