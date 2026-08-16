@@ -6,6 +6,12 @@ describe('My Login application', () => {
     beforeEach(async () => {
         await LoginPage.open();
     });
+    
+    it('should display the login form', async () => {
+        await expect(LoginPage.inputUsername).toBeDisplayed();
+        await expect(LoginPage.inputPassword).toBeDisplayed();
+        await expect(LoginPage.btnSubmit).toBeDisplayed();
+    });
 
     it('should login with valid credentials', async () => {
         await LoginPage.login(userData.username, userData.password);
